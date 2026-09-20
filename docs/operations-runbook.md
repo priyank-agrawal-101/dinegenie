@@ -1,4 +1,4 @@
-# TableMind Native Operations Runbook
+# DineGenie Native Operations Runbook
 
 ## Deployment shape
 

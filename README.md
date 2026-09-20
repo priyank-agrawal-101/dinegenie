@@ -1,4 +1,4 @@
-# dinegenie
+# DineGenie
 AI-Powered Restaurant Recommendation System (Zomato Use Case)
 
 # AI-Powered Restaurant Recommendation System

@@ -186,7 +186,7 @@ export function App() {
   return <div className="app-shell">
     <a className="skip-link" href="#main-content">Skip to search</a>
     <header className="site-header">
-      <a className="brand" href="/" aria-label="TableMind restaurant recommendations home"><span className="brand-mark"><BrandMark /></span><span>TableMind</span></a>
+      <a className="brand" href="/" aria-label="DineGenie restaurant recommendations home"><span className="brand-mark"><BrandMark /></span><span>DineGenie</span></a>
       <span className="coverage"><LocationPin />Bengaluru</span>
     </header>
     <main id="main-content">
@@ -245,11 +245,11 @@ export function App() {
             {result.response.meta.ranking_mode === "llm_assisted" && <p className="ranking-note">AI-assisted ordering with source-checked explanations.</p>}{result.response.meta.ranking_mode === "deterministic_fallback" && <p className="ranking-note">AI assistance is unavailable right now. These matches use our standard ranking and respect all your filters.</p>}{result.response.meta.ranking_mode === "llm_assisted" && result.response.summary && <p className="recommendation-summary">{result.response.summary}</p>}
             <ol className="restaurant-list">{result.response.recommendations.map((restaurant, index) => <RestaurantCard key={restaurant.restaurant_id} restaurant={restaurant} rank={index + 1} />)}</ol>
             <details className="technical-details"><summary>About these recommendations</summary><p>Ranked by how well the restaurant data matches your preferences. Prices and ratings come from a static snapshot; confirm current details with the restaurant.</p><p>Snapshot version: <code>{result.response.meta.dataset_version}</code></p><p>{result.response.meta.candidate_count} candidates considered{result.response.meta.candidate_limit_applied ? " (search limit reached)" : ""}.</p><p>Applied filter relaxations: {result.response.meta.filters_relaxed.length ? result.response.meta.filters_relaxed.join(", ") : "None"}.</p><p>Request reference: <code>{result.response.request_id}</code></p></details>
-          </> : <div className="empty-state"><span className="empty-mark" aria-hidden="true">✦</span><p className="eyebrow">A thoughtful shortlist</p><h3>Ready when you are.</h3><p>Fine-tune your preferences, then let TableMind find restaurants that fit.</p><div className="promise-grid"><div><span aria-hidden="true">01</span><strong>Made to match</strong><p>Your selected filters guide every result.</p></div><div><span aria-hidden="true">02</span><strong>Reasons included</strong><p>See why each restaurant earned its place.</p></div></div></div>}
+          </> : <div className="empty-state"><span className="empty-mark" aria-hidden="true">✦</span><p className="eyebrow">A thoughtful shortlist</p><h3>Ready when you are.</h3><p>Fine-tune your preferences, then let DineGenie find restaurants that fit.</p><div className="promise-grid"><div><span aria-hidden="true">01</span><strong>Made to match</strong><p>Your selected filters guide every result.</p></div><div><span aria-hidden="true">02</span><strong>Reasons included</strong><p>See why each restaurant earned its place.</p></div></div></div>}
         </section>
       </div>
       <p className="sr-only" role="status" aria-live="polite" aria-atomic="true">{announcement}</p>
     </main>
-    <footer className="site-footer"><strong>TableMind uses AI to personalize recommendations.</strong><span aria-hidden="true">•</span><p>Always verify details directly with the restaurant.</p></footer>
+    <footer className="site-footer"><strong>DineGenie uses AI to personalize recommendations.</strong><span aria-hidden="true">•</span><p>Always verify details directly with the restaurant.</p></footer>
   </div>;
 }

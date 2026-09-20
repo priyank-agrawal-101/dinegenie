@@ -1,8 +1,8 @@
-# TableMind Project Document
+# DineGenie Project Document
 
 ## 1. Project Summary
 
-TableMind is an AI-assisted restaurant recommendation application built from a real Zomato
+DineGenie is an AI-assisted restaurant recommendation application built from a real Zomato
 dataset. A user selects a Bengaluru locality, budget, cuisines, minimum rating, optional
 preferences, and result count. The application filters eligible restaurants, scores them, and can
 ask Groq to reorder the shortlist and select grounded explanations.

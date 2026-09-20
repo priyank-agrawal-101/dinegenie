@@ -10,8 +10,8 @@ $releaseRoot = [IO.Path]::GetFullPath((Join-Path $repositoryRoot $OutputRoot))
 if (-not $releaseRoot.StartsWith($repositoryRoot + [IO.Path]::DirectorySeparatorChar)) {
     throw "OutputRoot must be inside the repository"
 }
-$artifactRoot = Join-Path $releaseRoot "tablemind-$Version"
-$archive = Join-Path $releaseRoot "tablemind-$Version.zip"
+$artifactRoot = Join-Path $releaseRoot "dinegenie-$Version"
+$archive = Join-Path $releaseRoot "dinegenie-$Version.zip"
 
 Push-Location $repositoryRoot
 try {
