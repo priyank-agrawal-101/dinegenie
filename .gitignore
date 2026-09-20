@@ -1,0 +1,52 @@
+# Environment and credentials
+.env
+.env.*
+!.env.example
+!.env.staging.example
+!.env.production.example
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+release/
+
+# Node and frontend output
+node_modules/
+apps/web/dist/
+apps/web/coverage/
+apps/web/playwright-report/
+apps/web/test-results/
+*.tsbuildinfo
+
+# Generated datasets and runtime state
+data/raw/
+data/processed/
+data/artifacts/
+runtime-data/*
+!runtime-data/.gitkeep
+*.db
+*.sqlite
+*.sqlite3
+*.parquet
+
+# Model/debug output
+model-responses/
+prompt-traces/
+
+# Tool caches
+.tools/
+.cache/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

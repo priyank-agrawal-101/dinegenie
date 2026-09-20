@@ -1,0 +1,17 @@
+restaurants.example.com {
+    encode zstd gzip
+    root * C:/services/tablemind/apps/web/dist
+
+    @backend path /api/* /health/* /metrics
+    reverse_proxy @backend 127.0.0.1:8000
+
+    try_files {path} /index.html
+    file_server
+
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options "nosniff"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        -Server
+    }
+}

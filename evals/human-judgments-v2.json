@@ -1,0 +1,18 @@
+{
+  "evaluation_version": "restaurant-eval-v2",
+  "dataset_version": "ds_874a188dbb2650a1b53f",
+  "status": "reviewed",
+  "reviewer": "Priyank",
+  "rubric": "Review cases-v1.json and the source facts. Score relevance 0 (irrelevant), 1 (weak), 2 (good), 3 (excellent). All hard constraints must hold regardless of the score. These nulls are not agent-generated human judgments.",
+  "cases": {
+    "chinese_medium": {
+      "rst_84dade82694069384114a265": {"name":"Jalsa","grade":3,"reason":"This is good, and live with good ratings"},
+      "rst_7c621f921955e5f55adf242e": {"name":"Spice Elephant","grade":0,"reason":"this is closed now as per google"}
+    },
+    "basava_low": {
+      "rst_5d45d5c089a4d1dcc244e35f": {"name":"Redberrys","grade":0,"reason":"this is closed now as per google"},
+      "rst_a7a09b0e0e37f884fa799146": {"name":"Srinathji's Cafe","grade":0,"reason":"this is closed now as per google"}
+    }
+  }
+}
+

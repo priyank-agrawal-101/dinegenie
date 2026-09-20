@@ -1,0 +1,46 @@
+name: Release candidate
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Release version
+        required: true
+        default: 0.1.0-rc1
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    uses: ./.github/workflows/ci.yml
+
+  package:
+    needs: verify
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: python -m venv .venv
+      - run: .\.venv\Scripts\python.exe -m pip install --requirement requirements-dev.lock
+      - working-directory: apps/web
+        run: npm ci
+      - run: .\scripts\build_release.ps1 -Version "${{ inputs.version }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tablemind-${{ inputs.version }}
+          path: release/tablemind-${{ inputs.version }}.zip
+          if-no-files-found: error
+          retention-days: 30
+
+  promotion-record:
+    needs: package
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - run: echo "Release candidate ${{ inputs.version }} approved for target-specific deployment."

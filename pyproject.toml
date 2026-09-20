@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zomato-recommendation-api"
+version = "0.1.0"
+description = "Backend foundation for the AI-powered restaurant recommendation system."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "fastapi>=0.116,<1",
+  "httpx>=0.28,<1",
+  "polars>=1.36,<2",
+  "prometheus-client>=0.23,<1",
+  "pydantic-settings>=2.10,<3",
+  "uvicorn[standard]>=0.35,<1",
+]
+
+[project.scripts]
+restaurant-ingest = "pipelines.cli:main"
+
+[dependency-groups]
+dev = [
+  "httpx>=0.28,<1",
+  "mypy>=1.17,<2",
+  "pre-commit>=4.3,<5",
+  "pytest>=8.4,<9",
+  "ruff>=0.12,<1",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["apps/api/app", "pipelines"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-config --strict-markers"
+pythonpath = ["apps/api"]
+testpaths = ["apps/api/tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["apps/api", "pipelines", "scripts"]
+
+[tool.ruff.lint]
+select = ["B", "E", "F", "I", "UP"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["pydantic.mypy"]
+files = ["apps/api", "pipelines", "scripts"]
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false

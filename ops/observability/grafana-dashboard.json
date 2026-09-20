@@ -1,0 +1,99 @@
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "panels": [
+    {
+      "id": 1,
+      "title": "Readiness",
+      "type": "stat",
+      "targets": [{"expr": "restaurant_readiness_status", "refId": "A"}],
+      "gridPos": {"h": 6, "w": 6, "x": 0, "y": 0}
+    },
+    {
+      "id": 2,
+      "title": "API request rate",
+      "type": "timeseries",
+      "targets": [{"expr": "sum by (route, status) (rate(restaurant_http_requests_total[5m]))", "refId": "A"}],
+      "gridPos": {"h": 6, "w": 9, "x": 6, "y": 0}
+    },
+    {
+      "id": 3,
+      "title": "API p95 latency",
+      "type": "timeseries",
+      "targets": [{"expr": "histogram_quantile(0.95, sum by (le, route) (rate(restaurant_http_request_duration_seconds_bucket[5m])))", "refId": "A"}],
+      "gridPos": {"h": 6, "w": 9, "x": 15, "y": 0}
+    },
+    {
+      "id": 4,
+      "title": "Application errors",
+      "type": "timeseries",
+      "targets": [{"expr": "sum by (code) (rate(restaurant_application_errors_total[5m]))", "refId": "A"}],
+      "gridPos": {"h": 7, "w": 8, "x": 0, "y": 6}
+    },
+    {
+      "id": 5,
+      "title": "Recommendation modes",
+      "type": "timeseries",
+      "targets": [{"expr": "sum by (mode) (rate(restaurant_recommendation_requests_total[5m]))", "refId": "A"}],
+      "gridPos": {"h": 7, "w": 8, "x": 8, "y": 6}
+    },
+    {
+      "id": 6,
+      "title": "Model outcomes",
+      "type": "timeseries",
+      "targets": [{"expr": "sum by (outcome) (rate(restaurant_model_requests_total[5m]))", "refId": "A"}],
+      "gridPos": {"h": 7, "w": 8, "x": 16, "y": 6}
+    },
+    {
+      "id": 7,
+      "title": "Invalid model output",
+      "type": "timeseries",
+      "targets": [{"expr": "sum by (category) (rate(restaurant_model_validation_failures_total[5m]))", "refId": "A"}],
+      "gridPos": {"h": 7, "w": 8, "x": 0, "y": 13}
+    },
+    {
+      "id": 8,
+      "title": "Model tokens",
+      "type": "timeseries",
+      "targets": [{"expr": "sum by (direction) (rate(restaurant_model_tokens_total[5m]))", "refId": "A"}],
+      "gridPos": {"h": 7, "w": 8, "x": 8, "y": 13}
+    },
+    {
+      "id": 9,
+      "title": "Estimated model cost (USD)",
+      "type": "timeseries",
+      "targets": [{"expr": "sum(increase(restaurant_model_estimated_cost_usd_total[1h]))", "refId": "A"}],
+      "gridPos": {"h": 7, "w": 8, "x": 16, "y": 13}
+    },
+    {
+      "id": 10,
+      "title": "Ingestion age (hours)",
+      "type": "stat",
+      "targets": [{"expr": "(time() - restaurant_ingestion_last_success_timestamp_seconds) / 3600", "refId": "A"}],
+      "gridPos": {"h": 6, "w": 8, "x": 0, "y": 20}
+    },
+    {
+      "id": 11,
+      "title": "Ingestion rows",
+      "type": "bargauge",
+      "targets": [{"expr": "restaurant_ingestion_rows", "refId": "A"}],
+      "gridPos": {"h": 6, "w": 8, "x": 8, "y": 20}
+    },
+    {
+      "id": 12,
+      "title": "Ingestion rejection ratio",
+      "type": "stat",
+      "targets": [{"expr": "restaurant_ingestion_rejection_ratio", "refId": "A"}],
+      "gridPos": {"h": 6, "w": 8, "x": 16, "y": 20}
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 41,
+  "tags": ["restaurant-recommendation", "phase-6"],
+  "templating": {"list": []},
+  "time": {"from": "now-6h", "to": "now"},
+  "timezone": "browser",
+  "title": "Restaurant Recommendation Operations",
+  "uid": "restaurant-recommendation-ops",
+  "version": 1
+}

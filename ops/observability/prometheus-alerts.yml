@@ -1,0 +1,70 @@
+groups:
+  - name: restaurant-recommendation
+    rules:
+      - alert: RestaurantApiReadinessDown
+        expr: restaurant_readiness_status == 0
+        for: 5m
+        labels:
+          severity: critical
+          subsystem: database
+        annotations:
+          summary: Restaurant API has no reachable active dataset
+          runbook: docs/phase-6-observability.md#restaurantapireadinessdown
+
+      - alert: RestaurantApiHighErrorRate
+        expr: >-
+          sum(rate(restaurant_http_requests_total{status=~"5.."}[5m]))
+          /
+          clamp_min(sum(rate(restaurant_http_requests_total[5m])), 0.001)
+          > 0.05
+        for: 10m
+        labels:
+          severity: warning
+          subsystem: api
+        annotations:
+          summary: More than 5 percent of API requests are failing
+          runbook: docs/phase-6-observability.md#restaurantapihigherrorrate
+
+      - alert: RestaurantModelProviderFailures
+        expr: increase(restaurant_model_requests_total{outcome!="success"}[10m]) >= 3
+        for: 5m
+        labels:
+          severity: warning
+          subsystem: model
+        annotations:
+          summary: The model provider is repeatedly failing or returning invalid output
+          runbook: docs/phase-6-observability.md#restaurantmodelproviderfailures
+
+      - alert: RestaurantFallbackRateHigh
+        expr: >-
+          sum(rate(restaurant_recommendation_requests_total{mode="deterministic_fallback"}[15m]))
+          /
+          clamp_min(sum(rate(restaurant_recommendation_requests_total[15m])), 0.001)
+          > 0.20
+        for: 15m
+        labels:
+          severity: warning
+          subsystem: model
+        annotations:
+          summary: More than 20 percent of recommendations are using fallback
+          runbook: docs/phase-6-observability.md#restaurantfallbackratehigh
+
+      - alert: RestaurantIngestionStale
+        expr: time() - restaurant_ingestion_last_success_timestamp_seconds > 86400
+        for: 15m
+        labels:
+          severity: warning
+          subsystem: data
+        annotations:
+          summary: No successful ingestion has been recorded for 24 hours
+          runbook: docs/phase-6-observability.md#restaurantingestionstale
+
+      - alert: RestaurantIngestionRejectionRateHigh
+        expr: restaurant_ingestion_rejection_ratio > 0.05
+        for: 5m
+        labels:
+          severity: warning
+          subsystem: data
+        annotations:
+          summary: More than 5 percent of source rows were rejected
+          runbook: docs/phase-6-observability.md#restaurantingestionrejectionratehigh

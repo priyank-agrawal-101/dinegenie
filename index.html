@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A little inspiration for your next small step.">
+  <title>A Little Inspiration</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: system-ui, sans-serif;
+      color: #20392d;
+      background: radial-gradient(circle at top left, #e0ecd7, transparent 60%), #f7f5ee;
+    }
+
+    main {
+      width: 100%;
+      max-width: 580px;
+      padding: clamp(28px, 7vw, 56px);
+      background: #fffef9;
+      border: 1px solid #dde4d6;
+      border-radius: 28px;
+      box-shadow: 0 20px 70px #20392d0d;
+    }
+
+    .label {
+      margin: 0 0 24px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #536b49;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(36px, 8vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+    }
+
+    .intro { margin: 20px 0 28px; line-height: 1.7; color: #526155; }
+
+    #idea {
+      margin: 0 0 28px;
+      padding: 20px;
+      border-left: 3px solid #8da876;
+      border-radius: 0 12px 12px 0;
+      background: #f0f4e9;
+      line-height: 1.7;
+    }
+
+    button {
+      padding: 14px 22px;
+      border: 0;
+      border-radius: 100px;
+      background: #284e3b;
+      color: #fff;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover { background: #1b392a; }
+    button:focus-visible { outline: 3px solid #728b50; outline-offset: 4px; }
+    footer { margin-top: 32px; font-size: 13px; color: #63705f; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="label">A moment for yourself</p>
+    <h1>Dream big.<br>Start today.</h1>
+    <p class="intro">You don't need a perfect plan to start. Just a little curiosity and one small thing to try today.</p>
+    <p id="idea" aria-live="polite" aria-atomic="true">Spend ten minutes learning something just because it interests you.</p>
+    <button id="next-idea" type="button">Show me another idea <span aria-hidden="true">&rarr;</span></button>
+    <footer>Make a little room for something good.</footer>
+  </main>
+  <script>
+    const ideas = [
+      'Spend ten minutes learning something just because it interests you.',
+      'Take a short walk and notice three things you usually miss.',
+      'Write down one idea you would love to bring to life.',
+      'Send a kind message to someone who made your day better.',
+      'Pick one small task, give it your full attention, and finish it.'
+    ];
+    let currentIdea = 0;
+
+    document.getElementById('next-idea').addEventListener('click', () => {
+      currentIdea = (currentIdea + 1) % ideas.length;
+      document.getElementById('idea').textContent = ideas[currentIdea];
+    });
+  </script>
+</body>
+</html>

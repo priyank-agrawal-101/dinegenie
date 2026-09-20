@@ -1,0 +1,1934 @@
+{
+  "evaluated_at": "2026-09-18T12:30:30.341182+00:00",
+  "application_version": "0.1.0",
+  "evaluation_version": "restaurant-eval-v1",
+  "dataset_version": "ds_874a188dbb2650a1b53f",
+  "prompt_version": "restaurant-grounded-v1",
+  "schema_version": "ranked-evidence-v1",
+  "prompt_sha256": "f58fa3781e88ca82f141cf01f2b89b569f9f371a9252526828d14e24db3f82b7",
+  "schema_sha256": "c3afa3b1afb8208e474aeb41fb4ca7293e425e3ec8f39e59bd1c0b6f0db42453",
+  "approved_model": null,
+  "execution_mode": "fake",
+  "model": "fake-grounded-v1",
+  "trials": 3,
+  "baseline": {
+    "requests": 48,
+    "empty_result_rate": 0.3125,
+    "mean_latency_ms": 2.9373541666666667,
+    "p95_latency_ms": 7.534,
+    "latency_stddev_ms": 5.6237728679596675,
+    "hard_filter_violations": 0,
+    "unknown_ids": 0,
+    "count_mismatches": 0,
+    "delivered_unsupported_claims": 0,
+    "rejected_unsupported_output_rate": 0,
+    "fallback_rate": 0.0,
+    "mean_ndcg": null,
+    "human_judged_cases": 0,
+    "input_tokens_reported": 0,
+    "output_tokens_reported": 0,
+    "usage_complete": true,
+    "mean_estimated_cost_usd": 0
+  },
+  "assisted": {
+    "requests": 48,
+    "empty_result_rate": 0.3125,
+    "mean_latency_ms": 4.176833333333334,
+    "p95_latency_ms": 9.748,
+    "latency_stddev_ms": 2.5029736842182118,
+    "hard_filter_violations": 0,
+    "unknown_ids": 0,
+    "count_mismatches": 0,
+    "delivered_unsupported_claims": 0,
+    "rejected_unsupported_output_rate": 0.0,
+    "fallback_rate": 0.0,
+    "mean_ndcg": null,
+    "human_judged_cases": 0,
+    "input_tokens_reported": 0,
+    "output_tokens_reported": 0,
+    "usage_complete": true,
+    "mean_estimated_cost_usd": 0.0
+  },
+  "rows": {
+    "baseline": [
+      {
+        "case_id": "chinese_medium",
+        "trial": 1,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 36.759,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "chinese_medium",
+        "trial": 2,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.556,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "chinese_medium",
+        "trial": 3,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.638,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "rating_boundary",
+        "trial": 1,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.519,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "rating_boundary",
+        "trial": 2,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.494,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "rating_boundary",
+        "trial": 3,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.484,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "rating_above",
+        "trial": 1,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.399,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "rating_above",
+        "trial": 2,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.25,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "rating_above",
+        "trial": 3,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.29,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "basava_low",
+        "trial": 1,
+        "ids": [
+          "rst_a7a09b0e0e37f884fa799146",
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 2.776,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "basava_low",
+        "trial": 2,
+        "ids": [
+          "rst_a7a09b0e0e37f884fa799146",
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.55,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "basava_low",
+        "trial": 3,
+        "ids": [
+          "rst_a7a09b0e0e37f884fa799146",
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.449,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "custom_inclusive",
+        "trial": 1,
+        "ids": [
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.499,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "custom_inclusive",
+        "trial": 2,
+        "ids": [
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.395,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "custom_inclusive",
+        "trial": 3,
+        "ids": [
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.53,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "custom_below",
+        "trial": 1,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.391,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "custom_below",
+        "trial": 2,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.298,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "custom_below",
+        "trial": 3,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.276,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "medium_excludes600",
+        "trial": 1,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.423,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "medium_excludes600",
+        "trial": 2,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 2.21,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "medium_excludes600",
+        "trial": 3,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 2.496,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "high_empty",
+        "trial": 1,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.356,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "high_empty",
+        "trial": 2,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.364,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "high_empty",
+        "trial": 3,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.286,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "any_cuisine_low",
+        "trial": 1,
+        "ids": [
+          "rst_d595603ab2ed45ae132e824b",
+          "rst_3fa23d857199b273c89cc1c7"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.501,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "any_cuisine_low",
+        "trial": 2,
+        "ids": [
+          "rst_d595603ab2ed45ae132e824b",
+          "rst_3fa23d857199b273c89cc1c7"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.498,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "any_cuisine_low",
+        "trial": 3,
+        "ids": [
+          "rst_d595603ab2ed45ae132e824b",
+          "rst_3fa23d857199b273c89cc1c7"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 2.408,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "any_match",
+        "trial": 1,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 3.312,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "any_match",
+        "trial": 2,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.66,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "any_match",
+        "trial": 3,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.605,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "one_result",
+        "trial": 1,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.518,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "one_result",
+        "trial": 2,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.467,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "one_result",
+        "trial": 3,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.505,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "verified_and_unverified",
+        "trial": 1,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.513,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "verified_and_unverified",
+        "trial": 2,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.537,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "verified_and_unverified",
+        "trial": 3,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.538,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "safety_limitations",
+        "trial": 1,
+        "ids": [
+          "rst_a7a09b0e0e37f884fa799146",
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.462,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "safety_limitations",
+        "trial": 2,
+        "ids": [
+          "rst_a7a09b0e0e37f884fa799146",
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.509,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "safety_limitations",
+        "trial": 3,
+        "ids": [
+          "rst_a7a09b0e0e37f884fa799146",
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 4.49,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "unsupported_city",
+        "trial": 1,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.265,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "unsupported_city",
+        "trial": 2,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.234,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "unsupported_city",
+        "trial": 3,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 2.45,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "prompt_injection",
+        "trial": 1,
+        "ids": [
+          "rst_d595603ab2ed45ae132e824b",
+          "rst_3fa23d857199b273c89cc1c7"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 3.014,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "prompt_injection",
+        "trial": 2,
+        "ids": [
+          "rst_d595603ab2ed45ae132e824b",
+          "rst_3fa23d857199b273c89cc1c7"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.523,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "prompt_injection",
+        "trial": 3,
+        "ids": [
+          "rst_d595603ab2ed45ae132e824b",
+          "rst_3fa23d857199b273c89cc1c7"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 1.42,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "delimiter_injection",
+        "trial": 1,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 2.024,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "delimiter_injection",
+        "trial": 2,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 19.318,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "delimiter_injection",
+        "trial": 3,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "deterministic",
+        "latency_ms": 7.534,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      }
+    ],
+    "assisted": [
+      {
+        "case_id": "chinese_medium",
+        "trial": 1,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 3.691,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "chinese_medium",
+        "trial": 2,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 5.499,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "chinese_medium",
+        "trial": 3,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 10.859,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "rating_boundary",
+        "trial": 1,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 5.657,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "rating_boundary",
+        "trial": 2,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 3.536,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "rating_boundary",
+        "trial": 3,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 6.956,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "rating_above",
+        "trial": 1,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.217,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "rating_above",
+        "trial": 2,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.254,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "rating_above",
+        "trial": 3,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.449,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "basava_low",
+        "trial": 1,
+        "ids": [
+          "rst_a7a09b0e0e37f884fa799146",
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 6.13,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "basava_low",
+        "trial": 2,
+        "ids": [
+          "rst_a7a09b0e0e37f884fa799146",
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 11.755,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "basava_low",
+        "trial": 3,
+        "ids": [
+          "rst_a7a09b0e0e37f884fa799146",
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 3.25,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "custom_inclusive",
+        "trial": 1,
+        "ids": [
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 4.823,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "custom_inclusive",
+        "trial": 2,
+        "ids": [
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 5.76,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "custom_inclusive",
+        "trial": 3,
+        "ids": [
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 9.748,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "custom_below",
+        "trial": 1,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.297,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "custom_below",
+        "trial": 2,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.343,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "custom_below",
+        "trial": 3,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.358,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "medium_excludes600",
+        "trial": 1,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.453,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "medium_excludes600",
+        "trial": 2,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 4.769,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "medium_excludes600",
+        "trial": 3,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 9.577,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "high_empty",
+        "trial": 1,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.335,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "high_empty",
+        "trial": 2,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.324,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "high_empty",
+        "trial": 3,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.248,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "any_cuisine_low",
+        "trial": 1,
+        "ids": [
+          "rst_d595603ab2ed45ae132e824b",
+          "rst_3fa23d857199b273c89cc1c7"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 6.151,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "any_cuisine_low",
+        "trial": 2,
+        "ids": [
+          "rst_d595603ab2ed45ae132e824b",
+          "rst_3fa23d857199b273c89cc1c7"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 3.379,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "any_cuisine_low",
+        "trial": 3,
+        "ids": [
+          "rst_d595603ab2ed45ae132e824b",
+          "rst_3fa23d857199b273c89cc1c7"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 3.34,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "any_match",
+        "trial": 1,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 3.458,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "any_match",
+        "trial": 2,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 5.245,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "any_match",
+        "trial": 3,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 5.333,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "one_result",
+        "trial": 1,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 3.33,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "one_result",
+        "trial": 2,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 4.357,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "one_result",
+        "trial": 3,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 5.47,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "verified_and_unverified",
+        "trial": 1,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 5.068,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 15.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "verified_and_unverified",
+        "trial": 2,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 4.06,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "verified_and_unverified",
+        "trial": 3,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 3.571,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "safety_limitations",
+        "trial": 1,
+        "ids": [
+          "rst_a7a09b0e0e37f884fa799146",
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 3.456,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "safety_limitations",
+        "trial": 2,
+        "ids": [
+          "rst_a7a09b0e0e37f884fa799146",
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 3.224,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "safety_limitations",
+        "trial": 3,
+        "ids": [
+          "rst_a7a09b0e0e37f884fa799146",
+          "rst_5d45d5c089a4d1dcc244e35f"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 3.26,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "unsupported_city",
+        "trial": 1,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.496,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "unsupported_city",
+        "trial": 2,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 1.309,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "unsupported_city",
+        "trial": 3,
+        "ids": [],
+        "mode": "no_matches",
+        "latency_ms": 4.429,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": null
+      },
+      {
+        "case_id": "prompt_injection",
+        "trial": 1,
+        "ids": [
+          "rst_d595603ab2ed45ae132e824b",
+          "rst_3fa23d857199b273c89cc1c7"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 3.373,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "prompt_injection",
+        "trial": 2,
+        "ids": [
+          "rst_d595603ab2ed45ae132e824b",
+          "rst_3fa23d857199b273c89cc1c7"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 3.243,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "prompt_injection",
+        "trial": 3,
+        "ids": [
+          "rst_d595603ab2ed45ae132e824b",
+          "rst_3fa23d857199b273c89cc1c7"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 3.414,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "delimiter_injection",
+        "trial": 1,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 5.437,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "delimiter_injection",
+        "trial": 2,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 3.747,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      },
+      {
+        "case_id": "delimiter_injection",
+        "trial": 3,
+        "ids": [
+          "rst_7c621f921955e5f55adf242e",
+          "rst_84dade82694069384114a265",
+          "rst_4b32d76716170b94c6f1e256"
+        ],
+        "mode": "llm_assisted",
+        "latency_ms": 6.05,
+        "ndcg": null,
+        "hard_filter_violations": 0,
+        "unknown_ids": 0,
+        "count_mismatch": false,
+        "delivered_unsupported_claims": 0,
+        "telemetry": {
+          "model": "fake-grounded-v1",
+          "prompt_version": "restaurant-grounded-v1",
+          "schema_version": "ranked-evidence-v1",
+          "attempts": 1,
+          "latency_ms": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "usage_complete": true,
+          "estimated_cost_usd": 0.0,
+          "error_category": null,
+          "validation_failures": []
+        }
+      }
+    ]
+  },
+  "policy": {
+    "budget_low_max": 600,
+    "budget_medium_max": 1500,
+    "ranking_weights": {
+      "rating": 0.35,
+      "cuisine": 0.3,
+      "budget": 0.2,
+      "preference": 0.15
+    },
+    "candidate_query_limit": 200,
+    "rerank_candidate_limit": 20,
+    "timeout_seconds": 8.0,
+    "max_retries": 1,
+    "max_completion_tokens": 2500,
+    "max_prompt_tokens": 24000,
+    "max_prompt_bytes": 48000,
+    "response_format": "json_object",
+    "input_usd_per_million": 0.0,
+    "output_usd_per_million": 0.0
+  },
+  "release_blockers": [
+    "live_groq_evaluation_required",
+    "model_approval_required",
+    "human_relevance_review_required"
+  ],
+  "release_passed": false,
+  "cases_sha256": "64113ad7936fcc6374bbd9b3e65af4c632822f18496036d152f2ced38b2e2cdf",
+  "judgments_sha256": "250b532141d0486ecbe7b8e0a9f231b7df857ad6afd018f72daf1508cd3f1e3e"
+}

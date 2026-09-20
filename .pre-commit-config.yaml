@@ -1,0 +1,22 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.7
+    hooks:
+      - id: ruff-check
+        args: [--fix]
+      - id: ruff-format
+
+  - repo: local
+    hooks:
+      - id: backend-types
+        name: backend type check
+        entry: mypy apps/api
+        language: system
+        pass_filenames: false
+        files: ^(apps/api|pipelines)/.*\.py$
+      - id: web-check
+        name: web lint, types, tests, and build
+        entry: npm --prefix apps/web run check
+        language: system
+        pass_filenames: false
+        files: ^apps/web/

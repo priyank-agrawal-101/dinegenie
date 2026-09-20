@@ -1,0 +1,9 @@
+source_row_idx,source_url_path,name,address,location,online_order,book_table,rate,votes,rest_type,cuisines,approx_cost_for_two,listed_in_type,listed_in_city
+0,/bangalore/jalsa-banashankari,Jalsa,"942, 21st Main Road, 2nd Stage, Banashankari, Bangalore",Banashankari,Yes,Yes,4.1/5,775,Casual Dining,"North Indian, Mughlai, Chinese",800,Buffet,Banashankari
+1,/bangalore/spice-elephant-banashankari,Spice Elephant,"2nd Floor, 80 Feet Road, Near Big Bazaar, 6th Block, Kathriguppe, 3rd Stage, Banashankari, Bangalore",Banashankari,Yes,No,4.1/5,787,Casual Dining,"Chinese, North Indian, Thai",800,Buffet,Banashankari
+2,/SanchurroBangalore,San Churro Cafe,"1112, Next to KIMS Medical College, 17th Cross, 2nd Stage, Banashankari, Bangalore",Banashankari,Yes,No,3.8/5,918,"Cafe, Casual Dining","Cafe, Mexican, Italian",800,Buffet,Banashankari
+14,/SanchurroBangalore,San Churro Cafe,"1112, Next to KIMS Medical College, 17th Cross, 2nd Stage, Banashankari, Bangalore",Banashankari,Yes,No,3.8/5,918,"Cafe, Casual Dining","Cafe, Mexican, Italian",800,Cafes,Banashankari
+27,/bangalore/sea-green-cafe-1-banashankari-bangalore,Sea Green Cafe,"1036, Srinidhi Plaza, 3rd floor, Above Nilgiris, Stage 2, Banashankari, Bangalore",Banashankari,No,No,3.3/5,4,Cafe,"Cafe, Fast Food, Beverages",500,Cafes,Banashankari
+28,/bangalore/cuppa-1-banashankari,Cuppa,"940, Shantha Complex, 20th Main, 2nd Stage, Banashankari, Bangalore",Banashankari,No,No,3.3/5,23,Cafe,"Cafe, Fast Food",550,Cafes,Banashankari
+29,/bangalore/srinathjis-cafe-basavanagudi,Srinathji's Cafe,"112, Bull Temple Road, next to more, Basavanagudi, Bangalore",Basavanagudi,No,No,3.8/5,148,"Casual Dining, Cafe","North Indian, Cafe, Chinese, Fast Food",550,Cafes,Banashankari
+30,/bangalore/redberrys-basavanagudi,Redberrys,"30, Surveyor Street, DVG Road, Basavanagudi, Bangalore",Basavanagudi,Yes,No,4.0/5,219,Cafe,"Cafe, Italian",600,Cafes,Banashankari

@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-09-19T12:04:36.026715+00:00",
+  "environment": {
+    "kind": "local_in_process_asgi",
+    "python": "3.12.14",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "dataset_kind": "database_snapshot",
+    "dataset_rows": 12372
+  },
+  "iterations": 30,
+  "benchmarks": {
+    "metadata_cached": {
+      "median_ms": 1.52,
+      "p95_ms": 2.127,
+      "max_ms": 2.172
+    },
+    "candidate_query": {
+      "median_ms": 5.61,
+      "p95_ms": 7.066,
+      "max_ms": 7.112
+    },
+    "deterministic_recommendation": {
+      "median_ms": 6.672,
+      "p95_ms": 7.551,
+      "max_ms": 7.946
+    },
+    "llm_assisted_simulated_50ms_provider": {
+      "median_ms": 66.663,
+      "p95_ms": 80.661,
+      "max_ms": 83.848
+    }
+  },
+  "load": {
+    "expected_deterministic": {
+      "requests": 200,
+      "concurrency": 10,
+      "failures": 0,
+      "p95_ms": 47.73,
+      "requests_per_second": 292.45
+    },
+    "provider_failure": {
+      "requests": 50,
+      "concurrency": 10,
+      "failures": 0,
+      "p95_ms": 44.227,
+      "requests_per_second": 250.13
+    }
+  },
+  "query_plans": {
+    "location_rating": [
+      "SEARCH restaurants USING INDEX idx_restaurants_location_rating (dataset_version=? AND location_normalized=? AND rating>?)"
+    ],
+    "cuisine": [
+      "SEARCH restaurant_cuisines USING COVERING INDEX idx_restaurant_cuisines_lookup (dataset_version=? AND cuisine_normalized=?)"
+    ]
+  },
+  "targets": {
+    "metadata_p95_under_300ms": true,
+    "deterministic_p95_under_1000ms": true,
+    "simulated_llm_p95_under_8000ms": true,
+    "fallback_zero_failures": true,
+    "location_index_used": true,
+    "cuisine_index_used": true
+  }
+}

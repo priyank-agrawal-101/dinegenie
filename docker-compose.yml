@@ -1,0 +1,38 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      APP_ENVIRONMENT: development
+      APP_DATABASE_URL: sqlite:////app/runtime-data/restaurants.db
+      APP_CORS_ORIGINS: http://localhost:5173,http://127.0.0.1:5173
+      APP_LLM_ENABLED: "false"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./runtime-data:/app/runtime-data
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/live')",
+        ]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "5173:8080"
+    restart: unless-stopped
