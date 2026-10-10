@@ -254,6 +254,8 @@ All backend variables use the `APP_` prefix. Important settings include:
 - `APP_RECOMMENDATION_CONCURRENCY_LIMIT`
 - `APP_LLM_CONCURRENCY_LIMIT`
 - `APP_METRICS_ENABLED`
+- `APP_METRICS_AUTH_TOKEN` — required for staging/production Prometheus scrapes; use a random
+  secret of at least 32 characters and keep it in the API and monitoring secret stores.
 - `APP_INGESTION_METRICS_FILE`
 
 The browser build optionally accepts `VITE_API_BASE_URL`. An empty value uses same-origin paths

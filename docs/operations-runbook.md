@@ -10,9 +10,10 @@ network share.
 ## Configuration and secrets
 
 Copy `.env.staging.example` or `.env.production.example` outside the release directory and replace
-the example hostnames. Inject `APP_GROQ_API_KEY` from the host secret store at process start. Never
-put secrets in `VITE_*`, source control, build arguments, or normal logs. Development, staging,
-and production use separate databases, origins, metrics files, keys, and data directories.
+the example hostnames. Inject `APP_GROQ_API_KEY` and a random `APP_METRICS_AUTH_TOKEN` from the host
+secret store at process start. Metrics tokens must have at least 32 characters. Never put secrets in
+`VITE_*`, source control, build arguments, or normal logs. Development, staging, and production use
+separate databases, origins, metrics files, keys, and data directories.
 
 ## Dataset refresh and rollback
 
@@ -38,7 +39,10 @@ restores the paired dataset only if its schema/data version requires it.
 
 - `/health/live`: process only; use for restarts.
 - `/health/ready`: database and active dataset; use for traffic admission.
-- `/metrics`: restrict to the monitoring network.
+- `/metrics`: staging and production require an `Authorization: Bearer <token>` header. Store the
+  same high-entropy `APP_METRICS_AUTH_TOKEN` in the private monitoring secret file and use
+  `ops/observability/prometheus-railway.example.yml` as the hosted scrape configuration. Keep the
+  token out of source control, dashboard URLs, and logs.
 - Database/dataset failures: keep traffic off, validate the file and active manifest, restore the
   last verified backup, then recheck readiness.
 - Groq timeout/rate limit/outage: deterministic fallback is expected. Investigate fallback rate,

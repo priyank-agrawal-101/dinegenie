@@ -90,6 +90,7 @@ class Settings(BaseSettings):
     groq_api_key: SecretStr | None = None
 
     metrics_enabled: bool = True
+    metrics_auth_token: SecretStr | None = None
     ingestion_metrics_file: Path = Path("runtime-data/metrics/ingestion.prom")
 
     @field_validator("log_level")
@@ -102,6 +103,18 @@ class Settings(BaseSettings):
         if normalized not in allowed:
             raise ValueError(f"log_level must be one of {sorted(allowed)}")
         return normalized
+
+    @field_validator("metrics_auth_token", mode="before")
+    @classmethod
+    def validate_metrics_auth_token(cls, value: str | SecretStr | None) -> str | SecretStr | None:
+        """Treat an empty example setting as unset and reject weak scrape tokens."""
+
+        if value is None or value == "":
+            return None
+        token = value.get_secret_value() if isinstance(value, SecretStr) else value
+        if len(token) < 32:
+            raise ValueError("APP_METRICS_AUTH_TOKEN must contain at least 32 characters")
+        return value
 
     @property
     def cors_origin_list(self) -> list[str]:
