@@ -1,10 +1,10 @@
-# DineGenie Deployment Plan: Railway API + Vercel Web
+# DineGenie Deployment Plan and Notes: Railway API + Vercel Web
 
 ## Goal
 
 Deploy the current React/Vite frontend to Vercel and the FastAPI recommendation API to Railway. Keep the two services on the same GitHub `main` revision, preserve the SQLite dataset across Railway deploys, and verify the live browser-to-API search before sharing the site.
 
-This is a deployment plan, not a record of a completed deployment. No Railway or Vercel project has been configured by this document.
+This document began as a deployment plan and now also records platform settings and troubleshooting notes from the deployment. Live status below is based on the user's report and has not been independently checked from the platform dashboards.
 
 ## Current project shape
 
@@ -22,6 +22,52 @@ flowchart LR
 - `runtime-data/` and the SQLite database are ignored by Git. A Railway deployment will not receive the local database just by connecting GitHub.
 - `VITE_API_BASE_URL` is compiled into the frontend at build time. The frontend must receive the public Railway API URL as a Vercel environment variable and be rebuilt when it changes.
 - The supported release shape uses one SQLite writer. Do not scale the Railway API to multiple replicas or workers without replacing or redesigning the database and rate-limiting approach.
+
+## Deployment notes captured during setup
+
+### User-reported live configuration (2026-10-10)
+
+- Railway API: `https://dinegenie-production.up.railway.app`
+- Vercel frontend: `https://dinegenie-sooty.vercel.app`
+- The user reports the app is deployed, the Vercel origin was added to Railway CORS, and Railway was redeployed.
+- Production CORS origin: `https://dinegenie-sooty.vercel.app` (no trailing slash).
+- Vercel's `VITE_API_BASE_URL` should be `https://dinegenie-production.up.railway.app` (no trailing slash).
+- CORS is enforced by the Railway API. A Railway CORS change requires a Railway redeploy and a browser refresh; it does not require a Vercel redeploy. Redeploy Vercel when frontend code or `VITE_API_BASE_URL` changes, because Vite embeds that value at build time.
+- After a database or environment change, verify Railway `/health/ready`, `/api/v1/metadata/locations`, and a search from the Vercel site. The user reported deployment completion; these checks are the operational verification steps.
+
+### Railway build and dataset incidents
+
+- The first Railpack build failed because uv could not find Python `3.12.*` while managed Python downloads were disabled. The root `.python-version` was pushed with `3.12.14`; Railway then reported a successful deployment.
+- The first `/health/ready` check returned `DATASET_UNAVAILABLE` because the newly mounted volume contained an empty, zero-byte SQLite database. The database URL can be syntactically correct while the dataset has not yet been seeded.
+- The Railway shell reported `/data` as 434 MB total with 424 MB free. The pinned `zomato.csv` is 574,072,999 bytes, so it cannot be downloaded onto that volume even when the volume is otherwise empty. The resulting `OSError: [Errno 28] No space left on device` is a capacity mismatch, not a bad database URL.
+
+### One-time ingestion with a small persistent volume
+
+The CLI uses one `--runtime-root` for the raw download, generated artifacts, SQLite database, and default metrics file. Keep the persistent volume for the serving database and metrics; stage the large download and intermediate artifacts on temporary disk. Check available temporary storage first with `df -h / /tmp`; the temporary filesystem must have enough room for the source and processing outputs. Temporary files do not survive a container replacement.
+
+From `/app`, run the pinned ingestion with a temporary runtime root and write the metrics directly to the volume:
+
+```sh
+mkdir -p /tmp/dinegenie-seed
+./.venv/bin/python -m pipelines.cli \
+  --mode huggingface \
+  --repository ManikaSaini/zomato-restaurant-recommendation \
+  --revision 5738e9eda2fad49ad51c6e0ed26e761d9b947133 \
+  --filename zomato.csv \
+  --runtime-root /tmp/dinegenie-seed \
+  --metrics-file /data/metrics/ingestion.prom
+```
+
+After ingestion succeeds, copy the completed database to the persistent volume using SQLite's backup API (this includes any committed WAL data):
+
+```sh
+./.venv/bin/python -c 'import sqlite3; s=sqlite3.connect("/tmp/dinegenie-seed/restaurants.db"); d=sqlite3.connect("/data/restaurants-seed.db"); s.backup(d); d.close(); s.close()'
+./.venv/bin/python -c 'import sqlite3; c=sqlite3.connect("/data/restaurants-seed.db"); print(c.execute("PRAGMA integrity_check").fetchone()[0]); print(c.execute("SELECT COUNT(*) FROM restaurants").fetchone()[0]); c.close()'
+```
+
+The integrity check should print `ok` and the restaurant count should be nonzero (the pinned validation snapshot contained 12,372 canonical restaurants). Set Railway `APP_DATABASE_URL` to match the actual seeded filename—for the example above, `sqlite:////data/restaurants-seed.db`—then redeploy Railway and confirm `/health/ready` returns HTTP 200. If `/tmp` lacks enough space, run the one-time ingestion on a machine with sufficient disk and transfer only the validated SQLite database to the volume. Do not point the serving API at the temporary staging directory.
+
+The user reports that the storage workaround is sorted. Confirm the actual database filename and Railway variable in the dashboard if repeating the procedure; the service may instead be using `/data/restaurants.db`.
 
 ## Release gates
 
@@ -59,7 +105,7 @@ Create a Railway project from the DineGenie GitHub repository and add one servic
 
 Check Railway's build logs for Python 3.12 and a successful locked dependency install. If Railpack does not select Python 3.12 from the project's `requires-python`/lock metadata, set the service's Python version explicitly before proceeding.
 
-Size the volume for the pinned source download (the repository documentation estimates about 574 MB), the published artifacts, the SQLite database/WAL files, and retained backups. `--proxy-headers` alone does not establish a trusted client address: configure Uvicorn's `--forwarded-allow-ips` only with Railway-documented trusted proxy addresses, or move rate limiting to a trusted edge. Do not trust arbitrary forwarded headers from the public Internet.
+If running ingestion directly with `--runtime-root /data`, the volume must fit the pinned source download (about 574 MB), artifacts, SQLite/WAL files, and backups. A 434 MB volume cannot fit the source; use the small-volume staging procedure above or allocate more storage. `--proxy-headers` alone does not establish a trusted client address: configure Uvicorn's `--forwarded-allow-ips` only with Railway-documented trusted proxy addresses, or move rate limiting to a trusted edge. Do not trust arbitrary forwarded headers from the public Internet.
 
 **Set Railway variables**
 
@@ -127,6 +173,8 @@ Add this Vercel **Production** environment variable, using the actual Railway HT
 ```text
 VITE_API_BASE_URL=https://<railway-api-domain>
 ```
+
+For the user-reported deployment, the value is `https://dinegenie-production.up.railway.app`.
 
 This value is public client configuration, not a secret. Set it for Preview only when the API CORS allowlist includes the exact preview origin. Save the settings and trigger a fresh Vercel production deployment so Vite embeds the new API origin in the build. Do not add `APP_GROQ_API_KEY` or any backend-only credential to Vercel.
 

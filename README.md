@@ -14,6 +14,7 @@ Project specifications:
 - [Edge-case catalogue](edge-case.md)
 - [Dataset profile](docs/data-profile.md)
 - [MVP product rules](docs/product-rules.md)
+- [Railway + Vercel deployment plan and notes](deployment-plan.md)
 
 ## Current Status
 
@@ -27,8 +28,9 @@ Project specifications:
 - Phase 6: complete for the approved native single-instance MVP. See the consolidated
   [validation record](docs/phase-6-validation.md).
 - Phase 7: in progress; the native release candidate, local staging rehearsal, CI promotion gate,
-  HTTPS example, backup/restore, and operations runbook are ready. External production launch and
-  stakeholder sign-off remain pending. See the [release status](docs/phase-7-release-status.md).
+  HTTPS example, backup/restore, and operations runbook are ready. A Railway API and Vercel frontend
+  are deployed for platform evaluation; final public go-live gates and stakeholder sign-off remain
+  pending. See the [release status](docs/phase-7-release-status.md) and [deployment notes](deployment-plan.md).
 - Dataset production use is blocked until the source's unspecified license is clarified.
 
 The existing root `index.html` is unrelated and intentionally preserved. The application web client lives in `apps/web`.
