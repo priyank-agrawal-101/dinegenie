@@ -10,15 +10,21 @@ export function RestaurantCard({ restaurant, rank }: { restaurant: Recommendatio
   const cost = restaurant.estimated_cost;
   const basis = cost?.basis === "for_two" ? "Cost for two:" :
     cost?.basis === "per_person" ? "Cost per person:" : "Estimated cost · basis unavailable";
+  const visualLabel = restaurant.cuisines[0] ?? "Bengaluru dining";
   return <li className="restaurant-card"><article aria-labelledby={`restaurant-${restaurant.restaurant_id}`}>
-    <span className="rank">{rank}</span>
+    <div className="restaurant-visual" aria-hidden="true" data-rank={rank}>
+      <span className="rank">Rank #{rank}</span>
+      <span className="restaurant-monogram">{restaurant.name.slice(0, 1).toUpperCase()}</span>
+      <span className="visual-label">{visualLabel}</span>
+    </div>
     <div className="restaurant-content">
-      <div className="restaurant-topline"><div><h3 id={`restaurant-${restaurant.restaurant_id}`}>{restaurant.name}</h3><p className="restaurant-locality">{restaurant.location}{restaurant.city ? `, ${restaurant.city}` : ""}</p></div>
+      <span className="sr-only">Rank {rank}</span>
+      <div className="restaurant-topline"><div><p className="restaurant-locality">⌖ {restaurant.location}{restaurant.city ? `, ${restaurant.city}` : ""}</p><h3 id={`restaurant-${restaurant.restaurant_id}`}>{restaurant.name}</h3></div>
         <span className="rating">{restaurant.rating === null ? "Rating unavailable" : <><span aria-hidden="true">★</span>{restaurant.rating.toFixed(1)}</>}</span></div>
-      <p className="restaurant-cuisines">{restaurant.cuisines.length ? restaurant.cuisines.join(" · ") : "Cuisine unavailable"}</p>
+      <div className="restaurant-cuisines">{restaurant.cuisines.length ? restaurant.cuisines.map((cuisine) => <span key={cuisine}>{cuisine}</span>) : "Cuisine unavailable"}</div>
       <div className="cost-row">{cost ? <><span>{basis}</span><strong>{formatCost(cost)}</strong></> : <strong>Estimated cost unavailable</strong>}</div>
-      {restaurant.explanation && <div className="explanation"><span className="fit-check" aria-hidden="true">✓</span><div><h4>Why it fits</h4><p>{restaurant.explanation}</p></div></div>}
-      {restaurant.matched_preferences.length > 0 && <div className="evidence"><h4>Matched preferences</h4><ul className="tag-list">{restaurant.matched_preferences.map((value, index) => <li key={`${value}-${index}`}>{value}</li>)}</ul></div>}
+      {restaurant.explanation && <div className="explanation"><span className="fit-check" aria-hidden="true">✦</span><div><h4>Why this matches your palate</h4><p>{restaurant.explanation}</p></div></div>}
+      {restaurant.matched_preferences.length > 0 && <div className="evidence"><h4>Matched preferences</h4><ul className="tag-list">{restaurant.matched_preferences.map((value, index) => <li key={`${value}-${index}`}>✓ {value}</li>)}</ul></div>}
       {restaurant.unverified_preferences.length > 0 && <div className="unverified"><h4>Not verified by the dataset</h4><p>{restaurant.unverified_preferences.join(" · ")}</p></div>}
     </div>
   </article></li>;

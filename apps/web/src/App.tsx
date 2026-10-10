@@ -45,8 +45,10 @@ function describeError(error: unknown): SearchError {
 }
 
 function BrandMark() {
-  return <svg viewBox="0 0 32 32" aria-hidden="true">
-    <path d="M8 5v8M5.5 5v5.5c0 3 5 3 5 0V5M8 13v14M22 5v22M22 5c-5 3-5.5 11 0 12" />
+  return <svg viewBox="0 0 100 100" aria-hidden="true">
+    <path className="brand-spark" d="M50 8 53 20l12 3-12 3-3 12-3-12-12-3 12-3Z" />
+    <path d="M46 34q4-3 8 0-1 4-4 4t-4-4ZM22 67c0-21 12-29 28-29s28 8 28 29M16 72h68M26 78h48" />
+    <path className="brand-aroma" d="M38 58q6-10 12-2t12-4" />
   </svg>;
 }
 
@@ -57,12 +59,21 @@ function LocationPin() {
   </svg>;
 }
 
-function ResultsMark() {
-  return <svg className="results-mark" viewBox="0 0 90 66" aria-hidden="true">
-    <path d="M14 8h50a10 10 0 0 1 10 10v22a10 10 0 0 1-10 10H42L28 61l3-11H14A10 10 0 0 1 4 40V18A10 10 0 0 1 14 8Z" />
-    <path d="M39 37s-12-7-12-15c0-7 9-9 12-3 3-6 12-4 12 3 0 8-12 15-12 15Z" />
-    <path className="leaf" d="M70 54c7-1 12 1 15 6-7 2-12 0-15-6ZM73 12c3-6 7-8 12-7-1 7-5 10-12 7Z" />
-  </svg>;
+function ExperienceStrip() {
+  return <section className="experience-strip" aria-label="How DineGenie works">
+    <div><span>01</span><strong>Local discovery</strong><small>Bengaluru neighbourhoods</small></div>
+    <div><span>02</span><strong>Hard filters first</strong><small>Your constraints stay intact</small></div>
+    <div><span>03</span><strong>Grounded reasons</strong><small>Facts from the dataset</small></div>
+    <div><span>04</span><strong>Clear uncertainty</strong><small>Unverified details stay labelled</small></div>
+  </section>;
+}
+
+function SiteFooter() {
+  return <footer className="site-footer" id="about">
+    <div className="footer-brand"><strong>DineGenie</strong><p>Bengaluru dining discovery, shaped around your preferences and grounded in a static restaurant snapshot.</p></div>
+    <div><span className="footer-kicker">How it works</span><p>Filters are applied before ranking. AI may reorder eligible results, but it cannot add unsupported facts.</p></div>
+    <div><span className="footer-kicker">A useful reminder</span><p>Ratings, pricing and facilities may change. Always confirm current details directly with the restaurant.</p></div>
+  </footer>;
 }
 
 export function App() {
@@ -182,21 +193,23 @@ export function App() {
 
   const budgetChoices = bands.data?.bands ?? [];
   const filteredCuisines = availableCuisines.filter((value) => value.toLocaleLowerCase().includes(cuisineQuery.toLocaleLowerCase()));
+  const activeFilterCount = 2 + form.cuisines.length + (form.minimumRating === "any" ? 0 : 1) + (form.preferences.trim() ? 1 : 0);
 
   return <div className="app-shell">
     <a className="skip-link" href="#main-content">Skip to search</a>
     <header className="site-header">
-      <a className="brand" href="/" aria-label="DineGenie restaurant recommendations home"><span className="brand-mark"><BrandMark /></span><span>DineGenie</span></a>
-      <span className="coverage"><LocationPin />Bengaluru</span>
+      <a className="brand" href="/" aria-label="DineGenie restaurant recommendations home"><span className="brand-mark"><BrandMark /></span><span><strong>DineGenie</strong><small>Dining intelligence</small></span></a>
+      <div className="header-actions"><span className="coverage"><LocationPin />Bengaluru, Karnataka</span><span className="ai-status"><span aria-hidden="true">✦</span> AI-powered recommendations</span><nav aria-label="Primary"><a href="#search-title">Discover</a><a href="#results-title">Recommendations</a><a href="#about">About</a></nav></div>
     </header>
     <main id="main-content">
       <section className="intro" aria-labelledby="page-title">
-        <div><p className="eyebrow">AI-powered dining recommendations</p><h1 id="page-title">Find your next great meal.</h1><p className="intro-copy">Tell us what you’re in the mood for — we’ll handle the rest.</p></div>
-        <p className="intro-note"><span aria-hidden="true">✦</span> Personal picks, grounded in restaurant data.</p>
+        <div className="hero-copy"><p className="eyebrow"><span aria-hidden="true">✦</span> Bengaluru dining discovery</p><h1 id="page-title">Your next great meal, <em>thoughtfully</em> chosen.</h1><p className="intro-copy">Explore Bengaluru through the details that matter to you—neighbourhood, cuisine, budget and rating—then see why every restaurant earned its place.</p></div>
+        <div className="micro-quarters" aria-label="Popular localities"><span>Explore</span><div><button type="button" onClick={() => changeLocation("Indiranagar", true)}>Indiranagar</button><button type="button" onClick={() => changeLocation("Banashankari", true)}>Banashankari</button><button type="button" onClick={() => changeLocation("Koramangala 4th Block", true)}>Koramangala</button></div></div>
       </section>
+      <ExperienceStrip />
       <div className="workspace">
         <section className="search-panel" aria-labelledby="search-title">
-          <div className="panel-heading"><span className="step-number">01</span><div><p className="eyebrow">Your preferences</p><h2 id="search-title">What are you looking for?</h2></div></div>
+          <div className="panel-heading"><div><p className="eyebrow">Your preferences</p><h2 id="search-title">Filter &amp; refine</h2></div><span className="active-count">{activeFilterCount} active</span></div>
           <form noValidate onSubmit={(event) => void submit(event)}>
             <LocationPicker value={form.locationQuery} error={errors.location} onType={(value) => changeLocation(value, false)} onSelect={(value) => changeLocation(value, true)} />
             <fieldset className="field budget-field">
@@ -234,7 +247,7 @@ export function App() {
           </form>
         </section>
         <section className="results-panel" aria-labelledby="results-title" aria-busy={phase === "loading"}>
-          <div className="results-heading"><div><p className="eyebrow">Your recommendations</p><h2 id="results-title" tabIndex={-1}>{phase === "success" && result ? `${result.response.recommendations.length} ${result.response.recommendations.length === 1 ? "restaurant matches" : "restaurants match"} your preferences` : "Your best matches will appear here"}</h2>{phase === "success" && result && <span className="ai-pill">✦ AI-sorted</span>}</div><ResultsMark /></div>
+          <div className="results-heading"><div><div className="results-status"><span className="ai-pill">✦ {phase === "success" && result?.response.meta.ranking_mode === "llm_assisted" ? "AI-assisted ranking" : "Grounded recommendation engine"}</span><span>Hard filters respected</span></div><p className="eyebrow">Curated shortlist</p><h2 id="results-title" tabIndex={-1}>{phase === "success" && result ? `${result.response.recommendations.length} ${result.response.recommendations.length === 1 ? "restaurant matches" : "restaurants match"} your preferences` : "Recommendations tailored to your evening"}</h2><p className="results-intro">A focused shortlist based on the restaurant data available for your selected locality.</p></div><span className="match-orbit" aria-hidden="true">✦</span></div>
           {phase === "loading" ? <div className="empty-state loading-state"><span className="loading-orbit" aria-hidden="true">✦</span><h3>Building your shortlist</h3><p>Checking locality, cuisine, budget and rating for the strongest matches.</p><div className="loading-line" aria-hidden="true" /></div> : phase === "error" && searchError ? <div className="error-state" role="alert">
             <span className="state-icon" aria-hidden="true">{searchError.code === "NO_MATCHES" ? "↗" : "!"}</span><h3>{searchError.code === "NO_MATCHES" ? "No exact matches this time." : "Let’s try that again."}</h3><p>{searchError.message}</p>
             {submitted && <p className="applied-summary"><strong>Your search</strong>{summaryOf(submitted)}</p>}
@@ -250,6 +263,6 @@ export function App() {
       </div>
       <p className="sr-only" role="status" aria-live="polite" aria-atomic="true">{announcement}</p>
     </main>
-    <footer className="site-footer"><strong>DineGenie uses AI to personalize recommendations.</strong><span aria-hidden="true">•</span><p>Always verify details directly with the restaurant.</p></footer>
+    <SiteFooter />
   </div>;
 }
